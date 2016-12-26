@@ -28,12 +28,8 @@
             app:statusDefaultLayoutId="@layout/custom_view_default"
             app:statusFailLayoutId="@layout/custom_view_fail"
             app:statusFailNetWorkLayoutId="@layout/custom_view_fail_network"
-            app:statusFailNetWorkRetryClick="@id/status_id_retry_click"
-            app:statusFailRetryClick="@id/status_id_retry_click"
-            app:statusLoadingAnimationDrawableViewId="@id/status_id_loading_animation"
             app:statusLoadingLayoutId="@layout/custom_view_loading"
-            app:statusNoDataLayoutId="@layout/custom_view_no_data"
-            app:statusNoDataRetryClick="@id/status_id_retry_click">
+            app:statusNoDataLayoutId="@layout/custom_view_no_data">
 
         </com.blingbling.statuslayout.StatusLayout>
     </FrameLayout>

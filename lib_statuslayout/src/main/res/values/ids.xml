@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="status_id_retry_click" type="id"/>
-    <item name="status_id_loading_animation" type="id"/>
+    <item name="status_id_retry_click_view" type="id"/>
+    <item name="status_id_anim_image_view" type="id"/>
+    <item name="status_id_text_view" type="id"/>
 </resources>

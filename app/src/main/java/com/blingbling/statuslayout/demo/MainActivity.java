@@ -19,6 +19,5 @@ public class MainActivity extends AppCompatActivity {
 
     public void sampleCustom(View view) {
         startActivity(new Intent(this, SampleCustomActivity.class));
-
     }
 }

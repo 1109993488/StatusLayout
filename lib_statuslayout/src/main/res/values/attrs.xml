@@ -7,12 +7,6 @@
         <attr name="statusNoDataLayoutId" format="reference"></attr>
         <attr name="statusFailLayoutId" format="reference"></attr>
         <attr name="statusFailNetWorkLayoutId" format="reference"></attr>
-        <!--loading animation drawable-->
-        <attr name="statusLoadingAnimationDrawableViewId" format="reference"></attr>
-        <!--retry click-->
-        <attr name="statusNoDataRetryClick" format="reference"></attr>
-        <attr name="statusFailRetryClick" format="reference"></attr>
-        <attr name="statusFailNetWorkRetryClick" format="reference"></attr>
         <!--default show view-->
         <attr name="statusEnableShowDefaultView" format="boolean"></attr>
     </declare-styleable>

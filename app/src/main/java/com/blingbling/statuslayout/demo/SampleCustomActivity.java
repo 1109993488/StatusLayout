@@ -3,18 +3,16 @@ package com.blingbling.statuslayout.demo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.blingbling.statuslayout.OnRetryClickListener;
-import com.blingbling.statuslayout.OnViewChangedListener;
 import com.blingbling.statuslayout.StatusLayout;
 
 /**
  * Created by BlingBling on 2016/12/22.
  */
 
-public class SampleCustomActivity extends AppCompatActivity implements OnRetryClickListener, OnViewChangedListener {
+public class SampleCustomActivity extends AppCompatActivity implements OnRetryClickListener {
 
     private StatusLayout mStatusLayout;
 
@@ -24,7 +22,7 @@ public class SampleCustomActivity extends AppCompatActivity implements OnRetryCl
         setContentView(R.layout.activity_sample_custom);
         mStatusLayout = (StatusLayout) findViewById(R.id.status_layout);
         mStatusLayout.setOnRetryClickListener(this);
-        mStatusLayout.setOnViewChangedListener(this);
+//        mStatusLayout.setOnViewChangedListener(this);
     }
 
     int i = 1;
@@ -58,11 +56,11 @@ public class SampleCustomActivity extends AppCompatActivity implements OnRetryCl
         Toast.makeText(this, "Click Retry", Toast.LENGTH_SHORT).show();
     }
 
-    @Override
-    public void onViewChanged(int viewType, View view, Object data) {
-        if (viewType == StatusLayout.VIEW_TYPE_FAIL) {
-            TextView fail = (TextView) view.findViewById(R.id.tv_fail);
-            fail.setText((String) data);
-        }
-    }
+//    @Override
+//    public void onViewChanged(int viewType, View view, Object data) {
+//        if (viewType == StatusLayout.VIEW_TYPE_FAIL) {
+//            TextView fail = (TextView) view.findViewById(R.id.tv_fail);
+//            fail.setText((String) data);
+//        }
+//    }
 }

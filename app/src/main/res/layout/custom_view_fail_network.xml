@@ -14,7 +14,7 @@
         android:textSize="16sp"/>
 
     <Button
-        android:id="@id/status_id_retry_click"
+        android:id="@id/status_id_retry_click_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="点击重新加载"/>
