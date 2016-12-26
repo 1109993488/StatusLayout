@@ -22,7 +22,6 @@ public class SampleCustomActivity extends AppCompatActivity implements OnRetryCl
         setContentView(R.layout.activity_sample_custom);
         mStatusLayout = (StatusLayout) findViewById(R.id.status_layout);
         mStatusLayout.setOnRetryClickListener(this);
-//        mStatusLayout.setOnViewChangedListener(this);
     }
 
     int i = 1;
@@ -55,12 +54,4 @@ public class SampleCustomActivity extends AppCompatActivity implements OnRetryCl
     public void onRetryClick(View view) {
         Toast.makeText(this, "Click Retry", Toast.LENGTH_SHORT).show();
     }
-
-//    @Override
-//    public void onViewChanged(int viewType, View view, Object data) {
-//        if (viewType == StatusLayout.VIEW_TYPE_FAIL) {
-//            TextView fail = (TextView) view.findViewById(R.id.tv_fail);
-//            fail.setText((String) data);
-//        }
-//    }
 }

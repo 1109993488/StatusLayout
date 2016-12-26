@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <include layout="@layout/view_list"/>
+
+
+        <com.blingbling.statuslayout.StatusLayout
+            android:id="@+id/status_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:statusDefaultLayoutId="@layout/custom_view_default"
+            app:statusFailLayoutId="@layout/custom_view_fail"
+            app:statusFailNetWorkLayoutId="@layout/custom_view_fail_network"
+            app:statusLoadingLayoutId="@layout/custom_view_loading"
+            app:statusNoDataLayoutId="@layout/custom_view_no_data">
+
+        </com.blingbling.statuslayout.StatusLayout>
+    </FrameLayout>
+
+</LinearLayout>

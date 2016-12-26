@@ -20,4 +20,7 @@ public class MainActivity extends AppCompatActivity {
     public void sampleCustom(View view) {
         startActivity(new Intent(this, SampleCustomActivity.class));
     }
+    public void demo(View view) {
+        startActivity(new Intent(this, DemoActivity.class));
+    }
 }
