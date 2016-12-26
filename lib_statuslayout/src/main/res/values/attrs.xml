@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="StatusLayout">
+        <!--layout id-->
+        <attr name="statusDefaultLayoutId" format="reference"></attr>
+        <attr name="statusLoadingLayoutId" format="reference"></attr>
+        <attr name="statusNoDataLayoutId" format="reference"></attr>
+        <attr name="statusFailLayoutId" format="reference"></attr>
+        <attr name="statusFailNetWorkLayoutId" format="reference"></attr>
+        <!--loading animation drawable-->
+        <attr name="statusLoadingAnimationDrawableViewId" format="reference"></attr>
+        <!--retry click-->
+        <attr name="statusNoDataRetryClick" format="reference"></attr>
+        <attr name="statusFailRetryClick" format="reference"></attr>
+        <attr name="statusFailNetWorkRetryClick" format="reference"></attr>
+        <!--default show view-->
+        <attr name="statusEnableShowDefaultView" format="boolean"></attr>
+    </declare-styleable>
+</resources>

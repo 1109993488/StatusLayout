@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:duration="80" android:drawable="@drawable/img_miao1"/>
+    <item android:duration="80" android:drawable="@drawable/img_miao2"/>
+    <item android:duration="80" android:drawable="@drawable/img_miao3"/>
+    <item android:duration="80" android:drawable="@drawable/img_miao4"/>
+    <item android:duration="80" android:drawable="@drawable/img_miao5"/>
+    <item android:duration="80" android:drawable="@drawable/img_miao6"/>
+    <item android:duration="80" android:drawable="@drawable/img_miao7"/>
+    <item android:duration="80" android:drawable="@drawable/img_miao8"/>
+    <item android:duration="80" android:drawable="@drawable/img_miao9"/>
+    <item android:duration="80" android:drawable="@drawable/img_miao10"/>
+    <item android:duration="80" android:drawable="@drawable/img_miao11"/>
+    <item android:duration="80" android:drawable="@drawable/img_miao12"/>
+    <item android:duration="80" android:drawable="@drawable/img_miao13"/>
+    <item android:duration="80" android:drawable="@drawable/img_miao14"/>
+    <item android:duration="80" android:drawable="@drawable/img_miao15"/>
+    <item android:duration="80" android:drawable="@drawable/img_miao16"/>
+    <item android:duration="80" android:drawable="@drawable/img_miao17"/>
+    <item android:duration="80" android:drawable="@drawable/img_miao18"/>
+    <item android:duration="80" android:drawable="@drawable/img_miao19"/>
+    <item android:duration="80" android:drawable="@drawable/img_miao20"/>
+    <item android:duration="80" android:drawable="@drawable/img_miao21"/>
+    <item android:duration="80" android:drawable="@drawable/img_miao22"/>
+    <item android:duration="80" android:drawable="@drawable/img_miao23"/>
+    <item android:duration="80" android:drawable="@drawable/img_miao24"/>
+    <item android:duration="80" android:drawable="@drawable/img_miao25"/>
+    <item android:duration="80" android:drawable="@drawable/img_miao26"/>
+</animation-list>
