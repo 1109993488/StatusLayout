@@ -41,7 +41,9 @@ public class StatusLayout extends FrameLayout implements View.OnClickListener {
 
     private OnRetryClickListener mOnRetryClickListener;
     private AnimationDrawable mAnimationDrawable;
-    private boolean mLoadSuccess = false;
+    private OnAnimListener mOnAnimListener;
+
+    private boolean mNeedLoad = true;
 
     public StatusLayout(@NonNull Context context) {
         this(context, null);
@@ -75,7 +77,7 @@ public class StatusLayout extends FrameLayout implements View.OnClickListener {
         }
     }
 
-    protected void addView(int viewType, @LayoutRes int layoutId, String string) {
+    protected View addView(int viewType, @LayoutRes int layoutId, String string) {
         removeAllViews();
         final LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final View view = inflater.inflate(layoutId, this);
@@ -96,6 +98,7 @@ public class StatusLayout extends FrameLayout implements View.OnClickListener {
                 break;
         }
         setText(view, string);
+        return view;
     }
 
     protected void setRetryClick(View view) {
@@ -106,21 +109,36 @@ public class StatusLayout extends FrameLayout implements View.OnClickListener {
     }
 
     protected void startAnimationDrawable(View view) {
-        final ImageView imageView = (ImageView) view.findViewById(R.id.status_id_anim_image_view);
-        if (imageView != null) {
-            Drawable drawable = imageView.getDrawable();
-            if (drawable == null || !(drawable instanceof AnimationDrawable)) {
-                drawable = imageView.getBackground();
-            }
-            if (drawable != null && drawable instanceof AnimationDrawable) {
-                mAnimationDrawable = (AnimationDrawable) drawable;
-                mAnimationDrawable.start();
+        final View animView = view.findViewById(R.id.status_id_anim_view);
+        if (animView != null) {
+            if (animView instanceof OnAnimListener) {
+                mOnAnimListener = (OnAnimListener) animView;
+                mOnAnimListener.animStart();
+            } else if (animView instanceof ImageView) {
+                final ImageView imageView = (ImageView) animView;
+                Drawable drawable = imageView.getDrawable();
+                if (drawable == null || !(drawable instanceof AnimationDrawable)) {
+                    drawable = imageView.getBackground();
+                }
+                if (drawable != null && drawable instanceof AnimationDrawable) {
+                    mAnimationDrawable = (AnimationDrawable) drawable;
+                    mAnimationDrawable.start();
+                }
+            } else {
+                final Drawable drawable = animView.getBackground();
+                if (drawable != null && drawable instanceof AnimationDrawable) {
+                    mAnimationDrawable = (AnimationDrawable) drawable;
+                    mAnimationDrawable.start();
+                }
             }
         }
     }
 
     protected void stopAnimationDrawable() {
-        if (mAnimationDrawable != null) {
+        if (mOnAnimListener != null) {
+            mOnAnimListener.animStop();
+            mOnAnimListener = null;
+        } else if (mAnimationDrawable != null) {
             mAnimationDrawable.stop();
             mAnimationDrawable = null;
         }
@@ -162,68 +180,108 @@ public class StatusLayout extends FrameLayout implements View.OnClickListener {
 
     /**
      * 显示默认布局
+     *
+     * @return
      */
-    public void showDefaultView() {
-        showDefaultView(null);
-    }
-
-    public void showDefaultView(String string) {
-        addView(VIEW_TYPE_DEFAULT, mDefaultLayoutId, string);
+    public View showDefaultView() {
+        return addView(VIEW_TYPE_DEFAULT, mDefaultLayoutId, null);
     }
 
     /**
-     * 显示加载中
+     * 显示默认布局
+     *
+     * @param string 对id为status_id_text_view的TextView设置text
+     * @return
      */
-    public void showLoadingView() {
-        showLoadingView(null);
-    }
-
-    public void showLoadingView(String string) {
-        addView(VIEW_TYPE_LOADING, mLoadingLayoutId, string);
+    public View showDefaultView(String string) {
+        return addView(VIEW_TYPE_DEFAULT, mDefaultLayoutId, string);
     }
 
     /**
-     * 显示没有数据
+     * 显示加载中布局
+     *
+     * @return
      */
-    public void showNoDataView() {
-        showNoDataView(null);
-    }
-
-    public void showNoDataView(String string) {
-        addView(VIEW_TYPE_NO_DATA, mNoDataLayoutId, string);
+    public View showLoadingView() {
+        return addView(VIEW_TYPE_LOADING, mLoadingLayoutId, null);
     }
 
     /**
-     * 显示加载失败
+     * 显示加载中布局
+     *
+     * @param string 对id为status_id_text_view的TextView设置text
+     * @return
      */
-    public void showFailView() {
-        showFailView(null);
-    }
-
-    public void showFailView(String string) {
-        addView(VIEW_TYPE_FAIL, mFailLayoutId, string);
+    public View showLoadingView(String string) {
+        return addView(VIEW_TYPE_LOADING, mLoadingLayoutId, string);
     }
 
     /**
-     * 显示网络错误
+     * 显示没有数据布局
+     *
+     * @return
      */
-    public void showFailNetWorkView() {
-        showFailNetWorkView(null);
+    public View showNoDataView() {
+        return addView(VIEW_TYPE_NO_DATA, mNoDataLayoutId, null);
     }
 
-    public void showFailNetWorkView(String string) {
-        addView(VIEW_TYPE_FAIL_NETWORK, mFailNetWorkLayoutId, string);
+    /**
+     * 显示没有数据布局
+     *
+     * @param string 对id为status_id_text_view的TextView设置text
+     * @return
+     */
+    public View showNoDataView(String string) {
+        return addView(VIEW_TYPE_NO_DATA, mNoDataLayoutId, string);
+    }
+
+    /**
+     * 显示加载失败布局
+     *
+     * @return
+     */
+    public View showFailView() {
+        return addView(VIEW_TYPE_FAIL, mFailLayoutId, null);
+    }
+
+    /**
+     * 显示加载失败布局
+     *
+     * @param string 对id为status_id_text_view的TextView设置text
+     * @return
+     */
+    public View showFailView(String string) {
+        return addView(VIEW_TYPE_FAIL, mFailLayoutId, string);
+    }
+
+    /**
+     * 显示网络错误布局
+     *
+     * @return
+     */
+    public View showFailNetWorkView() {
+        return addView(VIEW_TYPE_FAIL_NETWORK, mFailNetWorkLayoutId, null);
+    }
+
+    /**
+     * 显示网络错误布局
+     *
+     * @param string 对id为status_id_text_view的TextView设置text
+     * @return
+     */
+    public View showFailNetWorkView(String string) {
+        return addView(VIEW_TYPE_FAIL_NETWORK, mFailNetWorkLayoutId, string);
     }
 
     public void setOnRetryClickListener(OnRetryClickListener listener) {
         mOnRetryClickListener = listener;
     }
 
-    public boolean isLoadSuccess() {
-        return mLoadSuccess;
+    public boolean isNeedLoad() {
+        return mNeedLoad;
     }
 
-    public void setLoadSuccess(boolean loadSuccess) {
-        mLoadSuccess = loadSuccess;
+    public void setNeedLoad(boolean needLoad) {
+        mNeedLoad = needLoad;
     }
 }

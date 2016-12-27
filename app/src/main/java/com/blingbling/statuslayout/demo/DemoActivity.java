@@ -32,7 +32,7 @@ public class DemoActivity extends AppCompatActivity implements OnRetryClickListe
     }
 
     private void onRefresh() {
-        if (!mStatusLayout.isLoadSuccess()) {
+        if (mStatusLayout.isNeedLoad()) {
             mStatusLayout.showLoadingView();
         }
         new RequestTask().execute();
@@ -57,7 +57,7 @@ public class DemoActivity extends AppCompatActivity implements OnRetryClickListe
         @Override
         protected void onPostExecute(String string) {
             if ("success".equals(string)) {
-                mStatusLayout.setLoadSuccess(true);
+                mStatusLayout.setNeedLoad(false);
                 mStatusLayout.showEmptyView();
             } else {
                 mStatusLayout.showFailView();
