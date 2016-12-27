@@ -181,7 +181,7 @@ public class StatusLayout extends FrameLayout implements View.OnClickListener {
     /**
      * 显示默认布局
      *
-     * @return
+     * @return status view
      */
     public View showDefaultView() {
         return addView(VIEW_TYPE_DEFAULT, mDefaultLayoutId, null);
@@ -191,7 +191,7 @@ public class StatusLayout extends FrameLayout implements View.OnClickListener {
      * 显示默认布局
      *
      * @param string 对id为status_id_text_view的TextView设置text
-     * @return
+     * @return status view
      */
     public View showDefaultView(String string) {
         return addView(VIEW_TYPE_DEFAULT, mDefaultLayoutId, string);
@@ -200,7 +200,7 @@ public class StatusLayout extends FrameLayout implements View.OnClickListener {
     /**
      * 显示加载中布局
      *
-     * @return
+     * @return status view
      */
     public View showLoadingView() {
         return addView(VIEW_TYPE_LOADING, mLoadingLayoutId, null);
@@ -210,7 +210,7 @@ public class StatusLayout extends FrameLayout implements View.OnClickListener {
      * 显示加载中布局
      *
      * @param string 对id为status_id_text_view的TextView设置text
-     * @return
+     * @return status view
      */
     public View showLoadingView(String string) {
         return addView(VIEW_TYPE_LOADING, mLoadingLayoutId, string);
@@ -219,7 +219,7 @@ public class StatusLayout extends FrameLayout implements View.OnClickListener {
     /**
      * 显示没有数据布局
      *
-     * @return
+     * @return status view
      */
     public View showNoDataView() {
         return addView(VIEW_TYPE_NO_DATA, mNoDataLayoutId, null);
@@ -229,7 +229,7 @@ public class StatusLayout extends FrameLayout implements View.OnClickListener {
      * 显示没有数据布局
      *
      * @param string 对id为status_id_text_view的TextView设置text
-     * @return
+     * @return status view
      */
     public View showNoDataView(String string) {
         return addView(VIEW_TYPE_NO_DATA, mNoDataLayoutId, string);
@@ -238,7 +238,7 @@ public class StatusLayout extends FrameLayout implements View.OnClickListener {
     /**
      * 显示加载失败布局
      *
-     * @return
+     * @return status view
      */
     public View showFailView() {
         return addView(VIEW_TYPE_FAIL, mFailLayoutId, null);
@@ -248,7 +248,7 @@ public class StatusLayout extends FrameLayout implements View.OnClickListener {
      * 显示加载失败布局
      *
      * @param string 对id为status_id_text_view的TextView设置text
-     * @return
+     * @return status view
      */
     public View showFailView(String string) {
         return addView(VIEW_TYPE_FAIL, mFailLayoutId, string);
@@ -257,7 +257,7 @@ public class StatusLayout extends FrameLayout implements View.OnClickListener {
     /**
      * 显示网络错误布局
      *
-     * @return
+     * @return status view
      */
     public View showFailNetWorkView() {
         return addView(VIEW_TYPE_FAIL_NETWORK, mFailNetWorkLayoutId, null);
@@ -267,7 +267,7 @@ public class StatusLayout extends FrameLayout implements View.OnClickListener {
      * 显示网络错误布局
      *
      * @param string 对id为status_id_text_view的TextView设置text
-     * @return
+     * @return status view
      */
     public View showFailNetWorkView(String string) {
         return addView(VIEW_TYPE_FAIL_NETWORK, mFailNetWorkLayoutId, string);

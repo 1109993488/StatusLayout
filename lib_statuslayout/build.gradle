@@ -1,5 +1,14 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
 
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.novoda:bintray-release:0.4.0'
+    }
+}
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
@@ -28,4 +37,13 @@ dependencies {
     })
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:25.1.0'
+}
+
+publish {
+    userOrg = '1109993488'
+    groupId = 'com.blingbling'
+    artifactId = 'status-layout'
+    publishVersion = '1.0.0'
+    desc = '显示不同状态的布局'
+    website = 'https://github.com/1109993488/StatusLayout'
 }

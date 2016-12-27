@@ -1,5 +1,9 @@
 apply plugin: 'com.android.application'
-
+repositories {
+    maven {
+        url  "http://dl.bintray.com/1109993488/maven"
+    }
+}
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
@@ -11,6 +15,11 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
+    lintOptions {
+        abortOnError false
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -27,5 +36,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.1.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
     testCompile 'junit:junit:4.12'
-    compile project(':lib_statuslayout')
+    compile 'com.blingbling:status-layout:1.0.0'
 }
