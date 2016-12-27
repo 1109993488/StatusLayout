@@ -14,10 +14,7 @@
 
 ## 开始使用
 ```
-repositories {
-    maven {
-        url  "http://dl.bintray.com/1109993488/maven"
-    }
+dependencies {
+    compile 'com.blingbling:status-layout:1.0.0'
 }
-compile 'com.blingbling:status-layout:1.0.0'
 ```
